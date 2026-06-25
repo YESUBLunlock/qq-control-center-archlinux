@@ -189,7 +189,7 @@ fi
 
 function createWindow() {
   win = new BrowserWindow({
-    icon: path.join(__dirname, "assets", "icon.png"),
+icon: path.join(__dirname, "assets", "icon.png"),
     width: 980,
     height: 720,
     minWidth: 860,
