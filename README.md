@@ -147,3 +147,21 @@ npm start
 `makepkg` 用于根据 `PKGBUILD` 从源码构建 Arch 软件包。  
 `npm start` 只适合源码运行或开发测试。
 （前端用html写的依托，能用就行）
+
+<!-- screenshots-start -->
+## 预览
+
+<img src="assets/screenshots/screenshot-01.png" alt="screenshot 1" width="800">
+
+<img src="assets/screenshots/screenshot-02.png" alt="screenshot 2" width="800">
+
+<img src="assets/screenshots/screenshot-03.png" alt="screenshot 3" width="800">
+
+<img src="assets/screenshots/screenshot-04.png" alt="screenshot 4" width="800">
+
+<img src="assets/screenshots/screenshot-05.png" alt="screenshot 5" width="800">
+
+<img src="assets/screenshots/screenshot-06.png" alt="screenshot 6" width="800">
+
+<img src="assets/screenshots/screenshot-07.png" alt="screenshot 7" width="800">
+<!-- screenshots-end -->
