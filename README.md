@@ -139,7 +139,7 @@ npm start
 
 本项目主要面向 Arch Linux。
 
-LiteLoader 和插件相关功能依赖本机 QQ / LiteLoader 环境，部分操作需要 sudo 权限。
+安装等部分操作需要 sudo 权限。
 
 `pacman` 仓库安装适合普通用户。  
 `pacman -U` 适合手动安装 GitHub Releases 中的本地包。  
