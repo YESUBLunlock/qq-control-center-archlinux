@@ -1,6 +1,6 @@
 # QQ Control Center
 
-一个针对 Arch Linux 的 QQ 启动器，可配合 LiteLoader 插件使用。
+一个针对 Arch Linux 的 QQ 启动器
 
 ## 功能
 
