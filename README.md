@@ -146,3 +146,4 @@ npm start
 `yay` 依赖 AUR，只有 AUR 发布成功后才能使用。  
 `makepkg` 用于根据 `PKGBUILD` 从源码构建 Arch 软件包。  
 `npm start` 只适合源码运行或开发测试。
+（前端用html写的依托，能用就行）
