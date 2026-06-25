@@ -15,7 +15,7 @@
 
 ## 安装
 
-### 方式一：pacman 仓库安装（推荐）
+### 方式一：pacman 仓库安装（推荐且最简单）
 
 添加仓库：
 
@@ -23,6 +23,7 @@
 sudo tee -a /etc/pacman.conf <<'EOF_PACMAN'
 [qq-control-center]
 SigLevel = Optional TrustAll
+# 仅适合个人测试仓库，正式使用建议导入并信任维护者 GPG key
 Server = https://yesublunlock.github.io/qq-control-center-archlinux/repo/$arch
 EOF_PACMAN
 ```
