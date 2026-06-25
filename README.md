@@ -56,7 +56,7 @@ sudo pacman -U ./qq-control-center-*.pkg.tar.zst
 sudo pacman -Rns qq-control-center
 ```
 
-### 方式三：AUR / yay 安装
+### 方式三：AUR / yay 安装（aur不让我传😭）
 
 AUR 发布后可以使用：
 
