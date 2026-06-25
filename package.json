@@ -1,0 +1,9 @@
+{
+  "name": "qq-control-center-arch",
+  "version": "1.0.0",
+  "description": "Arch Linux QQ control center",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  }
+}

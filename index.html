@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>QQ Control Center</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" href="assets/icon.png">
+</head>
+<body>
+  <header class="titlebar">
+    <div class="drag">
+      <span class="app-name">QQ Control Center</span>
+      <span id="topStatus" class="top-status">未检查</span>
+    </div>
+    <div class="win-controls">
+      <button id="minBtn" class="win-btn">─</button>
+      <button id="maxBtn" class="win-btn">□</button>
+      <button id="closeBtn" class="win-btn close">×</button>
+    </div>
+  </header>
+
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-title">QQ Control</div>
+        <div class="brand-sub">Arch Linux</div>
+      </div>
+
+      <button class="nav active" data-page="start">启动</button>
+      <button class="nav" data-page="process">进程</button>
+      <button class="nav" data-page="install">安装</button>
+      <button class="nav" data-page="plugin">插件</button>
+      <button class="nav" data-page="log">日志</button>
+
+      <div class="theme-box">
+        <span>主题色</span>
+        <input id="themeColor" type="color" value="#202020" />
+      </div>
+    </aside>
+
+    <main class="content">
+      <section id="startPage" class="page active">
+        <div class="panel">
+          <div class="head">
+            <div>
+              <h1>启动</h1>
+              <p>使用终端方式启动 QQ：bash -ic linuxqq。</p>
+            </div>
+            <button id="refreshStatus">刷新</button>
+          </div>
+
+          <div class="grid two">
+            <div class="card">
+              <div class="card-title">QQ</div>
+              <button id="startQQ" class="primary">启动 QQ</button>
+              <button id="killAllQQ" class="normal danger-soft">结束全部 QQ</button>
+            </div>
+
+            <div class="card">
+              <div class="card-title">状态</div>
+              <div id="simpleStatus" class="status-box">未检查</div>
+              <div id="systemInfo" class="info-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="processPage" class="page">
+        <div class="panel">
+          <div class="head">
+            <div>
+              <h1>进程管理</h1>
+              <p>一个 QQ 实例只显示一行，子进程合并。</p>
+            </div>
+            <div class="row">
+              <button id="refreshProcess">刷新</button>
+              <button id="killAllQQ2" class="danger-soft">全部结束</button>
+            </div>
+          </div>
+          <div id="processList" class="process-list">
+            <div class="empty">暂无 QQ 进程</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="installPage" class="page">
+        <div class="panel">
+          <div class="head">
+            <div>
+              <h1>安装</h1>
+              <p>Arch Linux 专用，安装/卸载输出会显示在内置终端。</p>
+            </div>
+          </div>
+
+          <div class="install-layout">
+            <div class="install-cards">
+              <div class="card">
+                <div class="card-title">QQ 包</div>
+                <select id="qqPackage">
+                  <option value="linuxqq">linuxqq</option>
+                  <option value="linuxqq-nt">linuxqq-nt</option>
+                  <option value="linuxqq-nt-bwrap">lqq-nt-bwrap（可能无效）</option>
+                </select>
+                <div class="row top-gap">
+                  <button id="installQQ" class="primary">安装 QQ</button>
+                  <button id="removeQQ" class="danger-soft">卸载 QQ</button>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-title">LiteLoader</div>
+                <div class="row">
+                  <button id="installLL" class="primary">安装 LiteLoader</button>
+                  <button id="removeLL" class="danger-soft">卸载 LiteLoader</button>
+                  <button id="fixLLPath">修复插件（不生效点这个）</button>
+                </div>
+                <label class="check-line">
+                  <input id="removeLLData" type="checkbox" />
+                  <span>卸载时删除 ~/LiteLoaderQQNT</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="terminal-card">
+              <div class="terminal-head">
+                <span>终端</span>
+                <div class="row">
+                  <button id="terminalStop">停止</button>
+                  <button id="terminalClear">清屏</button>
+                </div>
+              </div>
+
+              <textarea id="terminalOutput" class="terminal-output" readonly>等待任务...</textarea>
+
+              <div class="terminal-input-row">
+                <span class="terminal-prompt">$</span>
+                <input id="terminalInput" class="terminal-input" autocomplete="off" placeholder="输入 sudo 密码 / y / 回车" />
+                <button id="terminalSend">发送</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pluginPage" class="page">
+        <div class="panel">
+          <div class="head">
+            <div>
+              <h1>插件</h1>
+              <p>安装到 ~/LiteLoaderQQNT/plugins。</p>
+            </div>
+            <button id="refreshPlugins">刷新插件</button>
+          </div>
+
+          <div class="grid two">
+            <div class="card">
+              <div class="card-title">已安装插件</div>
+              <div id="pluginList" class="plugin-list">
+                <div class="empty">暂无插件</div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-title">一键安装</div>
+              <div id="catalogList" class="catalog-list"></div>
+
+              <div class="card-title custom-title">自定义 GitHub 插件</div>
+              <input id="customRepo" class="text-input" placeholder="https://github.com/user/repo.git" />
+              <button id="installCustomPlugin" class="normal full">安装自定义插件</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="logPage" class="page">
+        <div class="panel">
+          <div class="head">
+            <div>
+              <h1>日志</h1>
+              <p>启动器输出。</p>
+            </div>
+            <div class="row">
+              <button id="refreshLog">刷新</button>
+              <button id="clearLog">清空</button>
+            </div>
+          </div>
+          <pre id="logView">暂无日志</pre>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast">完成</div>
+  <script src="./renderer.js"></script>
+</body>
+</html>

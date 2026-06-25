@@ -1,0 +1,6 @@
+pkg/
+src/
+*.pkg.tar.zst
+*.pkg.tar.zst.sig
+node_modules/
+.DS_Store
