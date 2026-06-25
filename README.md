@@ -8,22 +8,34 @@
 - QQ 进程管理
 - 安装 / 卸载 QQ
 - 安装 / 卸载 LiteLoader
-- 修复 LiteLoader/插件
+- 修复 LiteLoader 插件和注入
 - 插件管理
+- 内置终端
 - 日志查看
 - 自定义主题色
 
 ## 安装
 
-### 方式一：AUR / yay 安装（推荐）
+### 方式一：pacman 仓库安装（推荐）
 
-可以直接执行：
+添加仓库：
 
 ```bash
-yay -S qq-control-center
+sudo tee -a /etc/pacman.conf <<'EOF_PACMAN'
+[qq-control-center]
+SigLevel = Optional TrustAll
+Server = https://yesublunlock.github.io/qq-control-center-archlinux/repo/$arch
+EOF_PACMAN
 ```
 
-安装完成后运行：
+同步并安装：
+
+```bash
+sudo pacman -Sy
+sudo pacman -S qq-control-center
+```
+
+运行：
 
 ```bash
 qq-control-center
@@ -39,19 +51,23 @@ qq-control-center
 sudo pacman -U ./qq-control-center-*.pkg.tar.zst
 ```
 
-安装完成后运行：
-
-```bash
-qq-control-center
-```
-
 卸载：
 
 ```bash
 sudo pacman -Rns qq-control-center
 ```
 
-### 方式三：makepkg 从源码构建
+### 方式三：AUR / yay 安装
+
+AUR 发布后可以使用：
+
+```bash
+yay -S qq-control-center
+```
+
+如果当前 AUR 还没有该包，请先使用 pacman 仓库安装或本地包安装。
+
+### 方式四：makepkg 从源码构建
 
 安装基础依赖：
 
@@ -72,13 +88,7 @@ cd qq-control-center-archlinux
 makepkg -si
 ```
 
-安装完成后运行：
-
-```bash
-qq-control-center
-```
-
-### 方式四：源码开发运行
+### 方式五：源码开发运行
 
 适合修改源码或临时测试：
 
@@ -90,10 +100,10 @@ npm start
 
 ## 更新
 
-### AUR / yay 安装方式
+### pacman 仓库安装方式
 
 ```bash
-yay -Syu qq-control-center
+sudo pacman -Syu qq-control-center
 ```
 
 ### pacman 本地包方式
@@ -102,6 +112,12 @@ yay -Syu qq-control-center
 
 ```bash
 sudo pacman -U ./qq-control-center-*.pkg.tar.zst
+```
+
+### AUR / yay 安装方式
+
+```bash
+yay -Syu qq-control-center
 ```
 
 ### makepkg 源码构建方式
@@ -126,7 +142,8 @@ npm start
 
 LiteLoader 和插件相关功能依赖本机 QQ / LiteLoader 环境，部分操作需要 sudo 权限。
 
-`yay` 用于从 AUR 获取 `PKGBUILD` 并自动构建安装。  
-`pacman` 用于安装已经构建好的 `.pkg.tar.zst` 包。  
+`pacman` 仓库安装适合普通用户。  
+`pacman -U` 适合手动安装 GitHub Releases 中的本地包。  
+`yay` 依赖 AUR，只有 AUR 发布成功后才能使用。  
 `makepkg` 用于根据 `PKGBUILD` 从源码构建 Arch 软件包。  
 `npm start` 只适合源码运行或开发测试。
