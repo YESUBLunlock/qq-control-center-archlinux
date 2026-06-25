@@ -1,6 +1,9 @@
+.DS_Store
+node_modules/
 pkg/
-src/
 *.pkg.tar.zst
 *.pkg.tar.zst.sig
-node_modules/
-.DS_Store
+src/
+*.tar.gz
+*.tar.xz
+*.tar.zst
