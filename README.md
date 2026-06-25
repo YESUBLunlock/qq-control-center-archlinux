@@ -167,3 +167,7 @@ npm start
 
 <img src="assets/screenshots/screenshot-07.png" alt="screenshot 7" width="800">
 <!-- screenshots-end -->
+
+题外话
+我能不能让它在 80% 情况下都不炸？
+不能，我只能保证在我的电脑上面没问题 (′へ`、 )
