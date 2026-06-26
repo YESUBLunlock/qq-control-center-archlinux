@@ -142,11 +142,11 @@ npm start
 
 安装等部分操作需要 sudo 权限。
 
-`pacman` 仓库安装适合普通用户。  
-`pacman -U` 适合手动安装 GitHub Releases 中的本地包。  
-`yay` 依赖 AUR，只有 AUR 发布成功后才能使用。  
-`makepkg` 用于根据 `PKGBUILD` 从源码构建 Arch 软件包。  
-`npm start` 只适合源码运行或开发测试。
+`pacman`  仓库安装适合普通用户。  
+`pacman -U`  适合手动安装 GitHub Releases 中的本地包。  
+`yay`  依赖 AUR，只有 AUR 发布成功后才能使用。  
+`makepkg`  用于根据  `PKGBUILD`  从源码构建 Arch 软件包。  
+`npm start`  只适合源码运行或开发测试。
 （前端用html写的依托，能用就行）
 
 个人写的小项目，如涉及纠纷可联系quadada819919@gmail.com
